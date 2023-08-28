@@ -1,5 +1,6 @@
 import axios from "axios"
-import Register from "./Register"
+import { UserContextProvider } from "./UserContext";
+import Routes from "./Routes";
 
 function App() {
 
@@ -7,8 +8,10 @@ function App() {
   axios.defaults.withCredentials = true;                  // used to be able to set cookies from api
 
   return (
-    <Register/>
+    <UserContextProvider> 
+      <Routes/>
+    </UserContextProvider>
   )
-}
+}  // user context provider wraps register, so register can access the context in it
 
 export default App
